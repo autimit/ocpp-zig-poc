@@ -19,7 +19,7 @@ The project uses a JSON file to simulate a charging session. This mock file repr
   "hostCommission": 0.3,
   "energyDelivered": 5.28
 }
-
+```
 sessionId: Unique identifier for the session.
 
 startedAt / endedAt: Timestamps defining the session duration.
