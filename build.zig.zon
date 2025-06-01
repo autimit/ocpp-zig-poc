@@ -65,16 +65,10 @@
         //    // actually used.
         //    .lazy = false,
         //},
+
+        // .tokamak = .{ .url = "https://github.com/cztomsik/tokamak/archive/refs/heads/main.tar.gz", .hash = "1220c48e95ef9a971ff83924df055c6a2c68fcfc6c8fd463e74b1e6c96a352eb2e01" },
     },
 
-    // Specifies the set of files and directories that are included in this package.
-    // Only files and directories listed here are included in the `hash` that
-    // is computed for this package. Only files listed here will remain on disk
-    // when using the zig package manager. As a rule of thumb, one should list
-    // files required for compilation plus any license(s).
-    // Paths are relative to the build root. Use the empty string (`""`) to refer to
-    // the build root itself.
-    // A directory listed here means that all files within, recursively, are included.
     .paths = .{
         "build.zig",
         "build.zig.zon",

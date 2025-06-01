@@ -1,5 +1,6 @@
 const std = @import("std");
 
+const server = @import("api/server.zig");
 const energy = @import("energy.zig");
 const session = @import("session.zig");
 
@@ -20,6 +21,9 @@ pub fn main() !void {
     const total_cost = energy.computeTotalCost(energy_kwh, parsed.pricePerKwh);
 
     const host_earnings = energy.computeHostEarnings(total_cost, parsed.hostCommission);
+
+    // test server
+    try server.startServer();
 
     std.debug.print("\n Energy delivered: {d:.2} kWh\n", .{energy_kwh});
     std.debug.print("\n Total cost: R$ {d:.2} kWh\n", .{total_cost});
