@@ -20,6 +20,7 @@ The project uses a JSON file to simulate a charging session. This mock file repr
   "energyDelivered": 5.28
 }
 ```
+
 sessionId: Unique identifier for the session.
 
 startedAt / endedAt: Timestamps defining the session duration.
@@ -34,7 +35,31 @@ hostCommission: Percentage of the revenue that goes to the charging station host
 
 energyDelivered: Total energy delivered in kWh (used for reporting).
 
+## Running local
+
+Make sure you have [Zig](https://ziglang.org/download/) installed (version 0.14.1 or later).
+
+1. Clone the repository:
+
+```bash
+https://github.com/hirowf/ocpp-protocol-simulator
+cd ocpp-protocol-simulator
+```
+
+2. Build the project:
+
+```bash
+zig build
+```
+
+3. Run the simulator:
+
+```bash
+./zig-out/bin/autimit-charge
+```
+
+---
+
 ## References
 
 - [Open Charge Point Protocol (OCPP) - Wikipedia](https://en.wikipedia.org/wiki/Open_Charge_Point_Protocol)
-

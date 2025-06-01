@@ -6,5 +6,6 @@
   "current": 16.0,
   "pricePerKwh": 1.25,
   "hostCommission": 0.3,
-  "energyDelivered": 5.28
+  "energyDelivered": 5.28,
+  "durationHours": 2.5
 }

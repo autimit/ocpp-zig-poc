@@ -16,12 +16,12 @@ pub fn main() !void {
 
     const parsed = try session.parseSession(buffer);
     const power_kw = energy.computePowerKw(parsed.voltage, parsed.current);
-    const energy_kwh = energy.computeEnergyKwh(power_kw, parsed.durationHours());
-    const total_cost = energy.computeTOtalCost(energy_kwh, parsed.pricePerKwh);
+    const energy_kwh = energy.computeEnergyKwh(power_kw, parsed.durationHours);
+    const total_cost = energy.computeTotalCost(energy_kwh, parsed.pricePerKwh);
 
     const host_earnings = energy.computeHostEarnings(total_cost, parsed.hostCommission);
 
-    std.debug.print("\\n Energy delivered: {d:.2} kWh\\n", .{energy_kwh});
-    std.debug.print("\\n Total cost: R$ {d:.2} kWh\\n", .{total_cost});
-    std.debug.print("\\n Host earnings: R$ {d:.2}\\n", .{host_earnings});
+    std.debug.print("\n Energy delivered: {d:.2} kWh\n", .{energy_kwh});
+    std.debug.print("\n Total cost: R$ {d:.2} kWh\n", .{total_cost});
+    std.debug.print("\n Host earnings: R$ {d:.2}\n", .{host_earnings});
 }
