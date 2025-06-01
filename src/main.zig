@@ -1,19 +1,27 @@
 const std = @import("std");
 
-/// brainstorm business model energy consumption calculation
-pub fn main() void {
-    const voltage: f64 = 220.0;
-    const current: f64 = 16.0;
-    const hours: f64 = 3.0;
-    const price_per_kwh: f64 = 1.25;
-    const host_commission: f64 = 0.3;
+const energy = @import("energy.zig");
+const session = @import("session.zig");
 
-    const power_kw = (voltage * current) / 1000.0;
-    const energy = power_kw * hours;
-    const total_cost = energy * price_per_kwh;
-    const host_earnings = total_cost * host_commission;
+pub fn main() !void {
+    const allocator = std.heap.page_allocator;
+    const file = try std.fs.cwd().openFile("data/mock-session.json", .{});
+    defer file.close();
 
-    std.debug.print("energy consumption: {d:.2} kWh\n", .{energy});
-    std.debug.print("total cost: {d:.2}\n", .{total_cost});
-    std.debug.print("host gain: {d:.2}\n", .{host_earnings});
+    const file_size = try file.getEndPos();
+    const buffer = try allocator.alloc(u8, file_size);
+    defer allocator.free(buffer);
+
+    _ = try file.readAll(buffer);
+
+    const parsed = try session.parseSession(buffer);
+    const power_kw = energy.computePowerKw(parsed.voltage, parsed.current);
+    const energy_kwh = energy.computeEnergyKwh(power_kw, parsed.durationHours());
+    const total_cost = energy.computeTOtalCost(energy_kwh, parsed.pricePerKwh);
+
+    const host_earnings = energy.computeHostEarnings(total_cost, parsed.hostCommission);
+
+    std.debug.print("\\n Energy delivered: {d:.2} kWh\\n", .{energy_kwh});
+    std.debug.print("\\n Total cost: R$ {d:.2} kWh\\n", .{total_cost});
+    std.debug.print("\\n Host earnings: R$ {d:.2}\\n", .{host_earnings});
 }

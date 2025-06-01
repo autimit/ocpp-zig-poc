@@ -1,0 +1,10 @@
+{
+  "sessionId": "sess-001",
+  "startedAt": "2025-05-31T14:00:00Z",
+  "endedAt": "2025-05-31T16:30:00Z",
+  "voltage": 220.0,
+  "current": 16.0,
+  "pricePerKwh": 1.25,
+  "hostCommission": 0.3,
+  "energyDelivered": 5.28
+}
