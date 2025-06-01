@@ -1,7 +1,7 @@
 
 ---
 
-### 📁 `ARCHITECTURE.md`
+### `ARCHITECTURE.md`
 
 ```markdown
 # System Architecture and Flow Description
