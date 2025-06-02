@@ -10,7 +10,7 @@ This project explores the concept of a mock OCPP-based charging station and the 
 - Simulate the business model (charging, consumption, transfer to the host)
 
 ## Architecture Flow
-
+```markdown
 ┌─────────────────────┐
 │    Simulator OCPP   │  ← sends mocked events (JSON)
 └────────┬────────────┘
@@ -24,4 +24,4 @@ This project explores the concept of a mock OCPP-based charging station and the 
 ┌─────────────────────┐
 │   Processor Zig     │  ← analyzes data and prints report
 └─────────────────────┘
-
+```
