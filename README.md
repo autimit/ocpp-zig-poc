@@ -55,7 +55,7 @@ zig build
 3. Run the simulator:
 
 ```bash
-./zig-out/bin/autimit-charge
+./zig-out/bin/autimit_ocpp
 ```
 
 ---
