@@ -42,8 +42,8 @@ Make sure you have [Zig](https://ziglang.org/download/) installed (version 0.14.
 1. Clone the repository:
 
 ```bash
-https://github.com/hirowf/ocpp-protocol-simulator
-cd ocpp-protocol-simulator
+https://github.com/hirowf/ocpp-zig-poc
+cd ocpp-zig-poc
 ```
 
 2. Build the project:
